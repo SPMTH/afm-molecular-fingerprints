@@ -1,0 +1,31 @@
+System = PTCDA_Cu111
+ ISTART = 1 ; ICHARG=1
+ ENCUT  =    425
+ ISMEAR = 0; SIGMA = 0.1;
+
+ IBRION = 1
+
+ EDIFF = 1.0E-5
+ EDIFFG = -0.01
+ NSW = 400
+ ALGO= Fast
+
+ NPAR = 10
+
+ LCHARG = .TRUE.
+ LWAVE = .TRUE.
+
+ IDIPOL = 3
+
+ NELM = 200
+
+   LREAL = Auto
+   ISYM = 0
+   LASPH = .TRUE.    ! Including non-spherical contributions from the gradient corrections inside the PAW spheres
+   !PREC = Medium
+   PREC = Accurate
+
+#DFT-D3 - Grimme
+ IVDW = 11
+ VDW_RADIUS= 30.0 # default
+
