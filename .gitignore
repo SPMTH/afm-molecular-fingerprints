@@ -19,15 +19,10 @@ dist/
 *.error
 slurm*
 
-# Experiments folder
-models/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
-# model training files
-model_training.log
-model_training.pid
 
 # Compiled Java class files
 *.class
@@ -69,7 +64,5 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-/calculations/pred_fp_arr.gz
-/calculations/pred_fp_arr.pickle
 *.gz
 *.pickle

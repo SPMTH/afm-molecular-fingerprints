@@ -10,5 +10,6 @@ This repository is the associated code for Molecular Identification via Molecula
  (https://arxiv.org/abs/2405.04321)
 
 ## Reproducing the figures
-To reproduce some of the figures, you need to download the data/dataset folder, experiments/300k_1024_all_ks_dropout_0_5 and 
+To reproduce some of the figures, you need to download the data and models folders from Zenodo.
+ 
 
