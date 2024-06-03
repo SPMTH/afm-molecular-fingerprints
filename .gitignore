@@ -20,7 +20,7 @@ dist/
 slurm*
 
 # Experiments folder
-experiments/
+models/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
