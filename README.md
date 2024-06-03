@@ -1,35 +1,14 @@
 ## Introduction
-The identification of molecular structure and composition is often achieved through the application of spectroscopic techniques, such as vibrational spectroscopy methods, nuclear magnetic resonance (NMR) and mass spectrometry. These methods only give averaged information over macroscopic samples in disolution. In contrast, noncontact atomic force microscopy with CO--functionalized metal tips (referred as HR-AFM) provides insights into the internal structure of individual molecules on a surface.
-From previous works, we know that 3D stacks of constant--height HR--AFM contain both structural and chemical information, as they allow for observation of the local
-decay of the sample's charge density and the electrostatic field. In this work, we present a pipeline for complete identification (atomic species and topology) of quasi-planar organic molecules, where a Convolutional Neural network is trained to predict molecular fingerprints (ECFP4) from the 3D HR--AFM stack. The predicted fingerprints are later used to identify the molecule using a virtual screening procedure, providing a retrieval accuracy of 95.43\% on theoretical images. We benchmark our method against both theoretical and experimental images, with very promising results towards the application in the lab.
-
-## Repository description
-
-To run this code, create a conda environment and install the packages included in the requirements.txt file.
+Non-Contact Atomic Force Microscopy with CO-functionalized metal tips (referred to as HR-AFM) provides access to the internal structure of individual molecules adsorbed on a surface with totally unprecedented resolution. Previous works have shown that deep learning (DL) models can retrieve the chemical and structural information encoded in a 3D stack of constant-height HR-AFM images, leading to molecular identification. In this work,  we overcome their limitations by using a well-established description of the molecular structure in terms of topological fingerprints, the 1024-bit Extended Connectivity Chemical Fingerprints of radius 2 (ECFP4), that were developed for substructure and similarity searching. ECFPs provide local structural information of the molecule, each bit correlating with a particular substructure within the molecule. Our DL model is able to extract this optimized structural descriptor from the 3D HR--AFM stacks and use it, through virtual screening, to identify molecules from their predicted ECFP4 with a retrieval accuracy on theoretical images of 95.4%. Furthermore, this approach,  unlike previous DL models, assigns a confidence score, the Tanimoto similarity, to each of the candidate molecules, thus providing information on the reliability of the identification.
+ By construction, the number of times a certain substructure is present in the molecule is lost during the hashing process, necessary to make them useful for machine learning applications.  We show that it is possible to complement the fingerprint-based virtual screening with global information provided by another DL model that predicts from the same HR-AFM stacks the chemical formula, boosting the identification accuracy up to a 97.6%.  Finally, we perform a limited test with experimental images, obtaining promising results towards the application of this pipeline under real conditions.
 
 
-Below lies a brief description of the contents of this repository:
+ *Keywords*
+ atomic force microscopy, molecular identification, chemical characterization, on surface synthesis, deep learning, neural networks, molecular fingerprints, density functional theory
 
-## Utils
-In the utils folder we have all the model definitions, training and tracking functions, virtual screening, etc. It's basically the folder to copy to reproduce the core code in the repository.
+This repository is the associated code for Molecular Identification via Molecular Fingerprint extraction from Atomic Force Microscopy images
+ (https://arxiv.org/abs/2405.04321)
 
-## Models
-Here we save the definitive molecular fingerprints and chemical formula model weights. When doing inference, don't forget to set model.eval() to freeze the batchnorm.
+## Reproducing the figures
+To reproduce some of the figures, you need to download the data/dataset folder, experiments/300k_1024_all_ks_dropout_0_5 and 
 
-## Calculations
-Scripts to obtain the data for some figures, like statistical analysis of virtual screening accuracy.
-
-## Figures
-Notebooks for reproducing the figures in the manuscript. I leave them there for inspiration and in case someone has to reuse them.
-
-## Image analysis
-This folder was a Proof of Concept for different interpolation strategies. 
-
-## Parsing
-Some useful scripts for creating the dataset of fingerprints and chemical formulas from SMILES strings and POSCARs of the simulation respectively.
-
-## Testing
-In principle, I wanted to write tests for my code. You can see how it went...
-
-## training_scripts
-Python training loops and submission scripts specific for the Rocinante machine.
