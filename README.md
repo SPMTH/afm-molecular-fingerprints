@@ -13,14 +13,17 @@ This repository is the associated code for Molecular Identification via Molecula
 Since data and models folders exceed github file size limit, they are stored in Zenodo (https://zenodo.org/records/11483708).
 
 To download them, just run:
+```
 chmod +x zenodo_download.sh
 ./zenodo_download.sh
+```
 
 The script downloads, untars and finally remove the tar files from your repository folder.
 
 ## Install the environment
-
+```
 conda create --name <env_name> --file requirements.txt
+```
 
 ## QUAM-AFM dataset
 To train your own models, you need to download the QUAM-AFM dataset in your machine. 
