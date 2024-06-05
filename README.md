@@ -9,7 +9,21 @@ Non-Contact Atomic Force Microscopy with CO-functionalized metal tips (referred 
 This repository is the associated code for Molecular Identification via Molecular Fingerprint extraction from Atomic Force Microscopy images
  (https://arxiv.org/abs/2405.04321)
 
-## Reproducing the figures
-To reproduce some of the figures, you need to download the data and models folders from Zenodo.
- 
+## Download from Zenodo
+Since data and models folders exceed github file size limit, they are stored in Zenodo (https://zenodo.org/records/11483708).
+
+To download them, just run:
+chmod +x zenodo_download.sh
+./zenodo_download.sh
+
+The script downloads, untars and finally remove the tar files from your repository folder.
+
+## Install the environment
+
+conda create --name <env_name> --file requirements.txt
+
+## QUAM-AFM dataset
+To train your own models, you need to download the QUAM-AFM dataset in your machine. 
+The dataset is freely available at https://edatos.consorciomadrono.es/dataset.xhtml?persistentId=doi:10.21950/UTGMZ7
+This project assumes you are using an HPC environment where the QUAM-AFM is stored at /scratch/dataset/quam 
 
