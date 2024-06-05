@@ -3,7 +3,7 @@ Non-Contact Atomic Force Microscopy with CO-functionalized metal tips (referred 
  By construction, the number of times a certain substructure is present in the molecule is lost during the hashing process, necessary to make them useful for machine learning applications.  We show that it is possible to complement the fingerprint-based virtual screening with global information provided by another DL model that predicts from the same HR-AFM stacks the chemical formula, boosting the identification accuracy up to a 97.6%.  Finally, we perform a limited test with experimental images, obtaining promising results towards the application of this pipeline under real conditions.
 
 
- *Keywords*
+ **Keywords**
  atomic force microscopy, molecular identification, chemical characterization, on surface synthesis, deep learning, neural networks, molecular fingerprints, density functional theory
 
 This repository is the associated code for Molecular Identification via Molecular Fingerprint extraction from Atomic Force Microscopy images
