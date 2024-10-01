@@ -21,8 +21,13 @@ chmod +x zenodo_download.sh
 The script downloads, untars and finally remove the tar files from your repository folder.
 
 ## Install the environment
+You can install the environment via conda:
 ```
 conda create --name <env_name> --file requirements.txt
+```
+Or pip:
+```
+pip install -r requirements_pip.txt
 ```
 
 ## QUAM-AFM dataset
