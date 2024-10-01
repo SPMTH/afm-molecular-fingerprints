@@ -1,0 +1,12 @@
+pytorch==1.12.1
+torchaudio
+torchmetrics
+torchvision
+seaborn
+scipy
+pre-commit
+pillow
+pandas
+matplotlib
+numpy
+rdkit
