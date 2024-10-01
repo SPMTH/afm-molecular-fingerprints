@@ -30,3 +30,37 @@ To train your own models, you need to download the QUAM-AFM dataset in your mach
 The dataset is freely available at https://edatos.consorciomadrono.es/dataset.xhtml?persistentId=doi:10.21950/UTGMZ7
 This project assumes you are using an HPC environment where the QUAM-AFM is stored at /scratch/dataset/quam 
 
+## Usage
+
+Extracting the fingerprints is as easy as loading the checkpoint of the model you want to use:
+```python
+import pandas as pd
+from utils.models import effnet_10_chan
+from utils.screening import fp_screening_function predict_fp
+
+model = effnet_10_chan(output_size=args.n_fp, dropout=args.dropout)
+
+models_path = 'path/to/models/300k_1024_all_ks_dropout_0_5/models'
+checkpoint = torch.load(os.path.join(models_path, 'checkpoint_5_virtual_epoch_7.pth'), map_location=torch.device('cpu'))
+
+model.load_state_dict(checkpoint['model_state_dict'])
+model = model.to(device)
+model.eval()
+```
+Loading the experimental images and performing inference on them:
+```python
+fp_pred = predict_fp(model, exp_molec_path)
+```
+It is important that the images of the molecule are ordered from 0 to 9, where 0 is the closest tip-sample image.
+
+
+After the fingerprints are extracted, you can perform the virtual screening against your precomputed database of fingerprints to extract the top 5 candidates:
+```python
+data_path = 'path/to/data/dataset/285k_train_15k_fp_and_atom_counts_w_H.gz'
+dataset_df = pd.read_pickle(data_path)
+
+test_df = dataset_df[dataset_df['split'] == 'test']
+test_df = parse_val_ks(test_df)
+
+output_df = fp_screening_function(fp_pred, test_df, top_k = 5, int_type=np.int8)
+
